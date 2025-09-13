@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Timber & Haven — Coming Soon</title>
+    <meta
+      name="description"
+      content="Find us soon exclusively on Amazon. Join the Timber & Haven newsletter to be first to know."
+    />
+    <style>
+      :root {
+        --bg-olive: #3e5a46;
+        --text: #ffffff;
+        --beige: rgba(215, 199, 173, 0.55);
+        --field-bg: #ffffff;
+        --field-text: #2a2a2a;
+        --field-hint: #8a8a8a;
+        --focus: #8fb59d;
+        --maxw: 680px;
+        --radius: 16px;
+        --shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          "Helvetica Neue", Arial;
+        color: var(--text);
+        background: #000;
+      }
+      .hero {
+        position: relative;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: url("hero-2.png") center/cover no-repeat;
+        isolation: isolate;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--beige);
+        z-index: 0;
+      }
+      .wrap {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: var(--maxw);
+        padding: clamp(20px, 6vw, 40px);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .brand {
+        width: min(68vw, 480px);
+        margin-inline: auto;
+        filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.18));
+      }
+      h1 {
+        margin: 6px 0 0;
+        font-weight: 600;
+        font-size: clamp(22px, 5.8vw, 34px);
+        line-height: 1.12;
+        letter-spacing: 0.2px;
+      }
+      p.lead {
+        margin: 6px auto 10px;
+        font-size: clamp(14px, 3.8vw, 18px);
+        opacity: 0.95;
+      }
+      form {
+        margin-top: 6px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 10px;
+        border-radius: var(--radius);
+        backdrop-filter: blur(4px);
+      }
+      .field {
+        display: flex;
+        align-items: center;
+        background: var(--field-bg);
+        border-radius: calc(var(--radius) - 6px);
+        padding: 12px 14px;
+        box-shadow: var(--shadow);
+      }
+      input[type="email"] {
+        flex: 1;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: var(--field-text);
+        font-size: 16px;
+      }
+      input::placeholder {
+        color: var(--field-hint);
+      }
+      .cta {
+        appearance: none;
+        border: 0;
+        cursor: pointer;
+        padding: 14px 18px;
+        border-radius: calc(var(--radius) - 6px);
+        background: var(--bg-olive);
+        color: #fff;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: var(--shadow);
+        transition: transform 0.04s ease, filter 0.15s ease;
+        white-space: nowrap;
+        min-width: 140px; /* Ajusta este valor si el texto más largo es mayor */
+        box-sizing: border-box;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cta:active {
+        transform: translateY(1px) scale(0.1);
+      }
+
+      /* Animación para el botón Notify */
+      .cta.animated {
+        animation: pop 0.4s cubic-bezier(0.4, 2, 0.6, 1) 1;
+      }
+      .cta .btn-check {
+        margin-left: 8px;
+        transition: opacity 0.2s;
+      }
+      @keyframes pop {
+        0% {
+          transform: scale(1);
+        }
+        30% {
+          transform: scale(1.13);
+        }
+        60% {
+          transform: scale(0.96);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .cta:focus-visible,
+      .field:focus-within {
+        outline: 2px solid var(--focus);
+        outline-offset: 3px;
+      }
+      .foot {
+        margin-top: 6px;
+        opacity: 0.95;
+        font-size: 14px;
+      }
+      @media (min-width: 640px) {
+        .wrap {
+          gap: 26px;
+        }
+        form {
+          gap: 12px;
+          padding: 12px;
+        }
+        .cta {
+          padding: 16px 22px;
+          font-size: 17px;
+        }
+        .field {
+          padding: 14px 16px;
+        }
+      }
+      @supports (padding: max(0px)) {
+        .wrap {
+          padding-bottom: max(24px, env(safe-area-inset-bottom));
+        }
+      }
+
+      /* Responsive: background para mobile */
+      @media (max-width: 639px) {
+        .hero {
+          background: url("hero-mobile.png") center/cover no-repeat;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="hero" role="main" aria-label="Timber & Haven — Coming Soon">
+      <div class="wrap">
+        <img class="brand" src="logo.png" alt="Timber & Haven" />
+        <h1>Find us soon exclusively on Amazon</h1>
+        <p class="lead">
+          Be the first to know when we launch. Join our newsletter.
+        </p>
+        <form
+          action="#"
+          method="post"
+          aria-label="Newsletter sign-up"
+          onsubmit="handleNotify(event);"
+        >
+          <label class="field" for="email">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              inputmode="email"
+              autocomplete="email"
+              placeholder="Enter your email"
+              required
+            />
+          </label>
+          <button class="cta" type="submit" aria-label="Notify me">
+            <span
+              class="btn-text"
+              style="display: inline-block; min-width: 80px; text-align: center"
+              >Notify Me</span
+            >
+            <span
+              class="btn-check"
+              style="display: none; vertical-align: middle"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="10" cy="10" r="10" fill="#3e5a46" />
+                <path
+                  d="M6 10.5L9 13.5L14 8.5"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+        </form>
+        <script>
+          function handleNotify(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector(".cta");
+            const input = form.querySelector("input[type=email]");
+            const btnText = btn.querySelector(".btn-text");
+            const btnCheck = btn.querySelector(".btn-check");
+            btn.classList.remove("animated");
+            void btn.offsetWidth;
+            btn.classList.add("animated");
+            input.value = "";
+            // Cambiar texto y mostrar check
+            btnText.textContent = "Subscribed";
+            btnCheck.style.display = "inline-block";
+            btn.disabled = true;
+            setTimeout(() => {
+              btnText.textContent = "Notify Me";
+              btnCheck.style.display = "none";
+              btn.disabled = false;
+            }, 2500);
+          }
+        </script>
+        <div class="foot">
+          © 2025 Timber & Haven. All rights reserved. Komerze Company LLC
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
