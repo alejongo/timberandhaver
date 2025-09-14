@@ -11,6 +11,7 @@
       name="description"
       content="Find us soon exclusively on Amazon. Join the Timber & Haven newsletter to be first to know."
     />
+    <link rel="icon" type="image/png" href="favicon.png" />
     <style>
       :root {
         --bg-olive: #3e5a46;
@@ -93,6 +94,17 @@
         border-radius: var(--radius);
         backdrop-filter: blur(4px);
       }
+
+      @media (max-width: 639px) {
+        form {
+          grid-template-columns: 1fr;
+        }
+        .cta {
+          width: 100%;
+          min-width: 0;
+        }
+      }
+
       .field {
         display: flex;
         align-items: center;
@@ -157,6 +169,7 @@
           transform: scale(1);
         }
       }
+
       .cta:focus-visible,
       .field:focus-within {
         outline: 2px solid var(--focus);
